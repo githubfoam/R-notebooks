@@ -1,27 +1,58 @@
----
-title: "R Notebook"
-output: rmarkdown::github_document
----
+# A Minimal Example for Markdown
 
+This is a minimal example of using **knitr** to produce an _HTML_ page from _Markdown_.
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(collapse=TRUE, comment="##"-")
+## R code chunks
+
+```{r setup}
+# set global chunk options: images will be 7x5 inches
+opts_chunk$set(fig.width=7, fig.height=5)
 ```
 
-This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+Now we write some code chunks in this markdown file:
 
-Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
-```{r}
-# Create the data frame.
-BMI <- 	data.frame(
-   gender = c("Male", "Male","Female"), 
-   height = c(152, 171.5, 165), 
-   weight = c(81,93, 78),
-   Age = c(42,38,26)
-)
-print(BMI)
-plot(BMI)
+```{r computing}
+x <- 1+1 # a simple calculator
+set.seed(123)
+rnorm(5)  # boring random numbers
 ```
 
-Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+We can also produce plots:
 
+```{r graphics}
+par(mar = c(4, 4, .1, .1))
+with(mtcars, {
+plot(mpg~hp, pch=20, col='darkgray')
+lines(lowess(hp, mpg))
+})
+```
+
+## Inline code
+
+Inline R code is also supported, e.g. the value of `x` is `r x`, and 2 × π
+= `r 2*pi`.
+
+## Math
+
+LaTeX math as usual: $f(\alpha, \beta) \propto x^{\alpha-1}(1-x)^{\beta-1}$.
+
+## Misc
+
+You can indent code chunks so they can nest within other environments such as lists.
+
+1. the area of a circle with radius x
+```{r foo}
+pi * x^2
+```
+2. OK, that is great
+
+To compile me, use
+
+```{r compile, eval=FALSE}
+library(knitr)
+knit('r-data-types.Rmd')
+```
+
+## Conclusion
+
+Markdown is super easy to write. Go to **knitr** [homepage](http://yihui.name/knitr) for details.  
