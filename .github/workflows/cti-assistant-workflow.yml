@@ -1,0 +1,29 @@
+name: CTI Assistant Workflow
+
+
+on:
+    push:
+        branches: [ main ]
+    workflow_dispatch:
+
+
+jobs:
+    build-and-run-assistant:
+        runs-on: ubuntu-latest
+
+
+        env:
+        OLLAMA_MODEL_NAME: "cti_gpt_oss"
+        MILVUS_HOST: "localhost"
+        MILVUS_PORT: 19530
+        MILVUS_COLLECTION: "cti_documents"
+        OLLAMA_BASE_URL: "http://localhost:11434"
+
+
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+        - name: Set up Python 3.10
+          uses: actions/setup-python@v5
+          with:
+                python-version: '3.10'
