@@ -3,7 +3,7 @@ name: CTI Assistant Workflow
 
 on:
     push:
-        branches: [ main ]
+        branches: [ testing-rmd ]
     workflow_dispatch:
 
 
