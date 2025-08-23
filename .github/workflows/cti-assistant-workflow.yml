@@ -13,11 +13,11 @@ jobs:
 
 
         env:
-        OLLAMA_MODEL_NAME: "cti_gpt_oss"
-        MILVUS_HOST: "localhost"
-        MILVUS_PORT: 19530
-        MILVUS_COLLECTION: "cti_documents"
-        OLLAMA_BASE_URL: "http://localhost:11434"
+            OLLAMA_MODEL_NAME: "cti_gpt_oss"
+            MILVUS_HOST: "localhost"
+            MILVUS_PORT: 19530
+            MILVUS_COLLECTION: "cti_documents"
+            OLLAMA_BASE_URL: "http://localhost:11434"
 
 
         steps:
