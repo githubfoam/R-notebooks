@@ -1,0 +1,8 @@
+
+crewai==0.35.6 
+crewai-tools==0.5.2 
+python-dotenv==1.0.1 
+pymilvus==2.4.0 
+ollama 
+requests 
+firecrawl-py
